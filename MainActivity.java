@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -63,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId()==R.id.navigation_item_home){
+                    Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                if(item.getItemId()==R.id.navigation_item_blog){
+                    Toast.makeText(MainActivity.this,"Blog",Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                if(item.getItemId()==R.id.navigation_item_about){
+                    Toast.makeText(MainActivity.this,"about",Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                item.setChecked(true);
                 mDrawerLayout.closeDrawer(Gravity.LEFT);
                 return false;
             }
